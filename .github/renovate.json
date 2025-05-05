@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "labels": ["dependencies"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr",
+    "platformAutomerge": true
+  },
+  "npm": {
+    "fileMatch": ["(^|/)package\\.json$", "(^|/)package\\.json\\.hbs$"]
+  },
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "matchPackageNames": ["/mysql/"],
+      "matchManagers": ["docker-compose"],
+      "enabled": false
+    }
+  ],
+  "rangeStrategy": "bump",
+  "rebaseWhen": "behind-base-branch",
+  "reviewers": ["ryuudotgg"],
+  "vulnerabilityAlerts": {
+    "vulnerabilityFixStrategy": "highest"
+  }
+}
